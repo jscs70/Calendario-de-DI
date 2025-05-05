@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Integridad de Datos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #1B4298;
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+        .day {
+            background-color: #009DDC;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .day input {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 3px;
+        }
+        .day textarea {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 3px;
+            height: 50px;
+        }
+        .day:nth-child(7n+1) {
+            background-color: #E20177;
+        }
+        .day:nth-child(7n+2) {
+            background-color: #54B948;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calendario de Integridad de Datos - Mayo 2025</h1>
+        <div class="calendar">
+            <!-- Generar los días del mes de mayo -->
+            <script>
+                const daysInMay = 31;
+                const calendar = document.querySelector('.calendar');
+                for (let i = 1; i <= daysInMay; i++) {
+                    const dayDiv = document.createElement('div');
+                    dayDiv.classList.add('day');
+                    dayDiv.innerHTML = `<strong>${i}</strong><br>
+                                        <input type="text" placeholder="Anotación"><br>
+                                        <textarea placeholder="Actividades"></textarea>`;
+                    calendar.appendChild(dayDiv);
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
